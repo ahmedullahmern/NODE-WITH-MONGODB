@@ -14,15 +14,28 @@ const task = [
 ]
 
 import express from 'express'
+import morgan from 'morgan'
 
 const app = express()
 const PORT = 4000
 
+app.use(express.json())
+app.use(morgan("tiny"));
+
+function middleware(req, res, next) {
+    req.reqByAhmed = "AhmedBhai"
+    console.log("hi leran middile ware");
+    next()
+}
+app.use(middleware)
+
+
 app.get("/", (req, res) => {
-    // console.log("req=>", req.query , req.params)
+    console.log("req=>", req.reqByAhmed)
     res.status(200).send(task)
 })
 app.post("/", (req, res) => {
+    console.log("body==>", req.body)
     res.send("Hello Post Request Called")
 })
 app.put("/", (req, res) => {
