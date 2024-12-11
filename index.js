@@ -20,7 +20,7 @@ const app = express()
 const PORT = 4000
 
 app.use(express.json())
-// app.use(morgan("tiny"));
+app.use(morgan("tiny"));
 
 function middleware(req, res, next) {
     req.reqByAhmed = "AhmedBhai"
