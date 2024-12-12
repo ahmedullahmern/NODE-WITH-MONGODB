@@ -15,12 +15,16 @@ const task = [
 
 import express from 'express'
 import morgan from 'morgan'
+import userRoutes from './routers/user.js'
 
 const app = express()
 const PORT = 4000
 
 app.use(express.json())
 app.use(morgan("tiny"));
+app.use(express.json())
+
+app.use('/user', userRoutes)
 
 function middleware(req, res, next) {
     req.reqByAhmed = "AhmedBhai"
