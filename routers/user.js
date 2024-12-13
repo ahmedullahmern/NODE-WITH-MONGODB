@@ -43,19 +43,4 @@ router.get("/:id", (req, res) => {
     })
 })
 
-// router.get("/:id", (req, res) => {
-//     const user = users.find((data) => data.id == req.params.id);
-//     if (!user) {
-//         return res.status(404).json({
-//             error: true,
-//             data: null,
-//             msg: "User not found",
-//         });
-//     }
-//     res.status(200).json({
-//         error: false,
-//         data: user,
-//         msg: "User found successfully",
-//     });
-// });
 export default router
