@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
     const { completed } = req.query
     let filter = tasks
     if (completed) {
-        filter = tasks.filter((data) => completed == 'ahmed' ? data.completed == true : data.completed == false)
+        filter = tasks.filter((data) => completed == 'ali' ? data.completed == true : data.completed == false)
     }
     res.status(200).send(filter)
 })
