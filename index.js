@@ -18,16 +18,25 @@ const tasks = [
 
 import express from 'express'
 import morgan from 'morgan'
+import 'dotenv/config'
 import userRoutes from './routers/user.js'
+import taskRoutes from './routers/task.js'
+import mongoose from 'mongoose'
 
 const app = express()
 const PORT = 4000
+
+console.log("MONGODBURI==>", process.env.MONGODBURI)
 
 app.use(express.json())
 app.use(morgan("tiny"));
 app.use(express.json())
 
 app.use('/user', userRoutes)
+app.use('/task',taskRoutes)
+
+mongoose.connect(process.env.MONGODBURI).then(() => console.log("mongodb connected"))
+.catch((e)=>console.log("error==>",e))
 
 function middleware(req, res, next) {
     req.reqByAhmed = "AhmedBhai"
