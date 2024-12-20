@@ -35,11 +35,11 @@ router.put("/:id", async (req, res) => {
 })
 
 
-router.delete("/:id", async (req, res) => {
-    const taskFromDB = await Task.findById(req.params.id)
-    if (!taskFromDB) return sendResponse(res, 404, null, "Task not found")
-    await Task.deleteOne({ _id: req.params.id })
-    sendResponse(res, 200, null, "Task Deleted Successfully")
-})
+// router.delete("/:id", async (req, res) => {
+//     const taskFromDB = await Task.findById(req.params.id)
+//     if (!taskFromDB) return sendResponse(res, 404, null, "Task not found")
+//     await Task.deleteOne({ _id: req.params.id })
+//     sendResponse(res, 200, null, "Task Deleted Successfully")
+// })
 
 export default router
