@@ -46,10 +46,10 @@ function middleware(req, res, next) {
 app.use(middleware)
 
 
-// app.get("/", (req, res) => {
-//     // console.log("req=>", req.reqByAhmed)
-//     res.status(200).send(tasks)
-// })
+app.get("/", (req, res) => {
+    // console.log("req=>", req.reqByAhmed)
+    res.status(200).send(tasks)
+})
 
 app.get("/singleTask/:id", (req, res) => {
     const task = tasks.filter((data) => data.id == req.params.id)
