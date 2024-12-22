@@ -6,4 +6,4 @@ export default function sendResponse(res, status, data, error, msg) {
         data: data,
         msg
     })
-}
+}   
