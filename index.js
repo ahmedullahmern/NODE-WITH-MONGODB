@@ -22,6 +22,7 @@ import 'dotenv/config'
 import userRoutes from './routers/user.js'
 import taskRoutes from './routers/task.js'
 import authRoutes from './routers/auth.js'
+import usersRoutes from './routers/users.js'
 import mongoose from 'mongoose'
 
 const app = express()
@@ -36,6 +37,7 @@ app.use(express.json())
 app.use('/user', userRoutes)
 app.use('/task', taskRoutes)
 app.use('/auth', authRoutes)
+app.use('/users', usersRoutes)
 
 mongoose.connect(process.env.MONGODBURI).then(() => console.log("mongodb connected"))
     .catch((e) => console.log("error==>", e))
