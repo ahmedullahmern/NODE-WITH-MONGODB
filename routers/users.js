@@ -8,17 +8,14 @@ const router = express.Router()
 
 router.put("/", authenticationUser, async (req, res) => {
     try {
+        console.log("city==>", city)
+        console.log("Country==>", Country)
         const { city, Country } = req.body
         const user = await User.findOneAndUpdate(
-            {
-                _id: req.user._id
-            },
-            {
-                city,
-                Country
-            },
+            { _id: req.user._id },
+            { city, Country },
             { new: true }
-        ).exec()
+        ).exec();
         return sendResponse(res, 200, user, false, "User Updated Successfully")
     } catch (error) {
         return sendResponse(res, 500, null, true, "somethin Went Wrong")

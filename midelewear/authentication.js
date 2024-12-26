@@ -20,7 +20,7 @@
             } else {
                 return sendResponse(res, 500, null, true, "SomeThing Went Worng")
             }
-        } catch (error) {
+            } catch (error) {
             return sendResponse(res, 500, null, true, "SomeThing Went Worng")
         }
     }
