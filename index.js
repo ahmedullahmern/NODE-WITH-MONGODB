@@ -19,17 +19,19 @@ const tasks = [
 import express from 'express'
 import morgan from 'morgan'
 import 'dotenv/config'
+import cors from 'cors'
 import userRoutes from './routers/user.js'
 import taskRoutes from './routers/task.js'
 import authRoutes from './routers/auth.js'
 import usersRoutes from './routers/users.js'
+import courseRoutes from './routers/course.js'
 import mongoose from 'mongoose'
 
 const app = express()
 const PORT = 4000
 
 console.log("MONGODBURI==>", process.env.MONGODBURI)
-
+app.use(cors())
 app.use(express.json())
 app.use(morgan("tiny"));
 app.use(express.json())
@@ -38,6 +40,7 @@ app.use('/user', userRoutes)
 app.use('/task', taskRoutes)
 app.use('/auth', authRoutes)
 app.use('/users', usersRoutes)
+app.use('/course', courseRoutes)
 
 mongoose.connect(process.env.MONGODBURI).then(() => console.log("mongodb connected"))
     .catch((e) => console.log("error==>", e))
@@ -47,8 +50,8 @@ function middleware(req, res, next) {
     console.log("hi leran middile ware");
     next()
 }
-app.use(middleware)
 
+app.use(middleware)
 
 app.get("/", (req, res) => {
     // console.log("req=>", req.reqByAhmed)
