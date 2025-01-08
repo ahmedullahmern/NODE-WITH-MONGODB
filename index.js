@@ -28,7 +28,7 @@ import courseRoutes from './routers/course.js'
 import mongoose from 'mongoose'
 
 const app = express()
-const PORT = 5001
+const PORT = 4000
 
 console.log("MONGODBURI==>", process.env.MONGODBURI)
 app.use(cors())
