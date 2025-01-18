@@ -23,12 +23,13 @@ import cors from 'cors'
 import userRoutes from './routers/user.js'
 import taskRoutes from './routers/task.js'
 import authRoutes from './routers/auth.js'
+import studentsRoutes from './routers/students.js'
 import usersRoutes from './routers/users.js'
 import courseRoutes from './routers/course.js'
 import mongoose from 'mongoose'
 
 const app = express()
-const PORT = 4000
+const PORT = 5000
 
 console.log("MONGODBURI==>", process.env.MONGODBURI)
 app.use(cors())
@@ -39,6 +40,7 @@ app.use(express.json())
 app.use('/user', userRoutes)
 app.use('/task', taskRoutes)
 app.use('/auth', authRoutes)
+app.use('/students', studentsRoutes)
 app.use('/users', usersRoutes)
 app.use('/course', courseRoutes)
 
